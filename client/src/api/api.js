@@ -5,7 +5,7 @@ import axios from "axios";
 // });
 
 const API = axios.create({
-  baseURL: "/api"
+  baseURL: https://fitness-tracker-web-w5td.onrender.com/api
 });
 
 let storeRef=null;
