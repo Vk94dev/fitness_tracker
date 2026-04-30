@@ -37,7 +37,7 @@ app.use("/api/user",UserRoutes);
 
 app.use(express.static(path.join(process.cwd(), "client/dist")));
 
-app.get("*", (req, res) => {
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(process.cwd(), "client/dist/index.html"));
 });
 
@@ -75,10 +75,13 @@ mongoose.connect(process.env.MONGODB_URI
 }
 
 
+
+const PORT=process.env.PORT;
+
 const startServer = async ()=>{
     try{
         connectDB();
-      app.listen(process.env.PORT, ()=> console.log("server running at port 3000"));
+      app.listen(PORT, ()=> console.log("server running at port 3000"));
     }
     catch(err){
       console.log(err);
