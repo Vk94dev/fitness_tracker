@@ -22,6 +22,8 @@ app.use((req, res, next) => {
   next();
 });
 
+// console.log(process.env);
+
 app.get("/", async (req,res)=>{
     res.status(200).json({
         message:"hello developers trom GFG",
@@ -66,7 +68,7 @@ mongoose.connect(process.env.MONGODB_URI
 const startServer = async ()=>{
     try{
         connectDB();
-      app.listen(3000, ()=> console.log("server running at port 3000"));
+      app.listen(process.env.PORT, ()=> console.log("server running at port 3000"));
     }
     catch(err){
       console.log(err);
